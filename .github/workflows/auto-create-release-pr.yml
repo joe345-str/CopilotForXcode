@@ -36,8 +36,7 @@ jobs:
 
       - name: Approve pull request
         env:
-          # PAT stored in github/CopilotForXcode, with write permissions to pull requests
-          GH_TOKEN: ${{ secrets.XCODE_AUTO_APPROVE }}
+          # gh pr review --approve "${{ steps.create-pr.outputs.pr_number }}"
         run: |
           gh pr review --approve "${{ github.ref_name }}"
 
