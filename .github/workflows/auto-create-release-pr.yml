@@ -39,9 +39,8 @@ jobs:
           # PAT stored in github/CopilotForXcode, with write permissions to pull requests
           GH_TOKEN: ${{ secrets.XCODE_AUTO_APPROVE }}
         run: |
-          gh pr review --approve "${{ github.ref_name }}"
-
-      - name: Auto-merge pull request
+        
+      continue-on-error:  - name: Auto-merge pull request
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
